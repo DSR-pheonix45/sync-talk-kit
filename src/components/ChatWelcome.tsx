@@ -60,7 +60,7 @@ export function ChatWelcome() {
             <BarChart3 className="h-8 w-8 text-primary-foreground" />
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-foreground mb-2">Welcome to Datalis</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-2">Welcome to Dabby</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Select an AI agent above to get started with specialized assistance for consulting, auditing, or taxation.
             </p>

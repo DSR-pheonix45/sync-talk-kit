@@ -8,7 +8,8 @@ import {
   User,
   CreditCard,
   HelpCircle,
-  Sparkles
+  Sparkles,
+  Briefcase
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -68,8 +69,18 @@ export function ChatSidebar({ className }: ChatSidebarProps) {
 
   return (
     <div className={cn("flex flex-col h-full w-64 chat-sidebar", className)}>
-      {/* New Chat Button */}
+      {/* Logo */}
       <div className="p-4 border-b border-border">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+            <Briefcase className="h-5 w-5 text-primary-foreground" />
+          </div>
+          <h1 className="text-xl font-bold text-foreground">Dabby</h1>
+        </div>
+      </div>
+
+      {/* New Chat Button */}
+      <div className="p-4">
         <Button 
           variant="default" 
           className="w-full justify-start gap-3 bg-primary hover:bg-primary-hover text-primary-foreground font-medium"

@@ -17,7 +17,7 @@ export function ChatHeader() {
             <Sparkles className="h-4 w-4 text-primary" />
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-foreground">Chat with Datalis Consultant</h1>
+            <h1 className="text-lg font-semibold text-foreground">Chat with Dabby Consultant</h1>
             <p className="text-xs text-muted-foreground">AI-powered business intelligence</p>
           </div>
         </div>
@@ -27,7 +27,7 @@ export function ChatHeader() {
         {/* Consultant Selection */}
         <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-elevated border border-border">
           <div className="w-2 h-2 rounded-full bg-success"></div>
-          <span className="text-sm font-medium text-foreground">Datalis Consultant</span>
+          <span className="text-sm font-medium text-foreground">Dabby Consultant</span>
           <ChevronDown className="h-4 w-4 text-muted-foreground" />
         </div>
 

@@ -3,8 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { 
   Send, 
-  Paperclip, 
-  Mic,
+  Paperclip,
   Sparkles,
   Plus
 } from 'lucide-react';
@@ -12,7 +11,6 @@ import { cn } from '@/lib/utils';
 
 export function ChatInput() {
   const [message, setMessage] = useState('');
-  const [isRecording, setIsRecording] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,22 +56,6 @@ export function ChatInput() {
               </Button>
 
               <div className="flex-1" />
-
-              <Button 
-                type="button"
-                variant="ghost" 
-                size="sm" 
-                className={cn(
-                  "gap-2 transition-colors",
-                  isRecording 
-                    ? "text-destructive hover:text-destructive" 
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-                onClick={() => setIsRecording(!isRecording)}
-              >
-                <Mic className={cn("h-4 w-4", isRecording && "animate-pulse")} />
-                {isRecording ? 'Recording...' : 'Voice'}
-              </Button>
             </div>
 
             {/* Text Input */}
@@ -83,7 +65,7 @@ export function ChatInput() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Message Datalis (Consultant)... (Ctrl + K)"
+                  placeholder="Message Dabby Consultant... (Ctrl + K)"
                   className="min-h-[80px] resize-none border-0 bg-transparent p-0 focus-visible:ring-0 text-foreground placeholder:text-muted-foreground"
                   rows={3}
                 />
