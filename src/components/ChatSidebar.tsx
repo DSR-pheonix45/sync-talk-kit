@@ -9,7 +9,10 @@ import {
   CreditCard,
   HelpCircle,
   Sparkles,
-  Briefcase
+  Briefcase,
+  Plus,
+  FileText,
+  Folder
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -17,9 +20,12 @@ import { cn } from '@/lib/utils';
 
 interface ChatSidebarProps {
   className?: string;
+  onCreateWorkbench?: () => void;
+  onCreateCompany?: () => void;
+  onGenerateReport?: () => void;
 }
 
-export function ChatSidebar({ className }: ChatSidebarProps) {
+export function ChatSidebar({ className, onCreateWorkbench, onCreateCompany, onGenerateReport }: ChatSidebarProps) {
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
     workbench: true,
     history: false,
@@ -79,8 +85,8 @@ export function ChatSidebar({ className }: ChatSidebarProps) {
         </div>
       </div>
 
-      {/* New Chat Button */}
-      <div className="p-4">
+      {/* Action Buttons */}
+      <div className="p-4 space-y-2">
         <Button 
           variant="default" 
           className="w-full justify-start gap-3 bg-primary hover:bg-primary-hover text-primary-foreground font-medium"
@@ -90,6 +96,37 @@ export function ChatSidebar({ className }: ChatSidebarProps) {
           <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
             ⌘N
           </kbd>
+        </Button>
+        
+        <div className="grid grid-cols-2 gap-2">
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="gap-2"
+            onClick={onCreateWorkbench}
+          >
+            <Plus className="h-3 w-3" />
+            Workbench
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="gap-2"
+            onClick={onCreateCompany}
+          >
+            <Building2 className="h-3 w-3" />
+            Company
+          </Button>
+        </div>
+        
+        <Button 
+          variant="secondary" 
+          size="sm"
+          className="w-full gap-2"
+          onClick={onGenerateReport}
+        >
+          <FileText className="h-3 w-3" />
+          Generate Report
         </Button>
       </div>
 
