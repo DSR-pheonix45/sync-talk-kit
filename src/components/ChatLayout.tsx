@@ -7,6 +7,7 @@ import { WorkbenchModal } from './WorkbenchModal';
 import { CompanyModal } from './CompanyModal';
 import { ReportModal } from './ReportModal';
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export function ChatLayout() {
   const [showWorkbenchModal, setShowWorkbenchModal] = useState(false);
@@ -41,9 +42,9 @@ export function ChatLayout() {
           <ChatHeader onGenerateReport={() => setShowReportModal(true)} />
           
           {/* Chat Area */}
-          <div className="flex-1 chat-message-area overflow-hidden">
+          <ScrollArea className="flex-1 chat-message-area">
             <ChatWelcome />
-          </div>
+          </ScrollArea>
           
           {/* Input */}
           <div className="p-2 border-t border-border">
