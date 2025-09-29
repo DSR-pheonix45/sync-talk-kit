@@ -64,29 +64,31 @@ export function ChatSidebar({ onCreateWorkbench, onCreateCompany }: ChatSidebarP
     { label: 'Last 30 days', href: '/history/30days' },
     { label: 'Previous conversations', href: '/history/all' },
   ];
-
   return (
-    <Sidebar className={isCollapsed ? "w-14" : "w-72"} collapsible="icon">
+    <Sidebar collapsible="icon">
       <SidebarTrigger className="m-2 self-end" />
 
       <SidebarContent>
         {/* Logo */}
-        <div className="p-4 border-b border-border">
+        <div className={cn("border-b border-border", isCollapsed ? "p-2" : "p-4")}>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <Briefcase className="h-5 w-5 text-primary-foreground" />
+            <div className="sidebar-icon-container w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+              <Briefcase className="h-4 w-4 text-primary-foreground" />
             </div>
             {!isCollapsed && <h1 className="text-xl font-bold text-foreground">Dabby</h1>}
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="p-4 space-y-2">
+        <div className={cn("space-y-2", isCollapsed ? "p-2" : "p-4")}>
           <Button 
             variant="default" 
-            className="w-full justify-start gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
+            className={cn(
+              "w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium",
+              isCollapsed ? "justify-center px-2" : "justify-start gap-3"
+            )}
           >
-            <MessageSquarePlus className="h-4 w-4" />
+            <MessageSquarePlus className="h-4 w-4 flex-shrink-0" />
             {!isCollapsed && (
               <>
                 New Chat
@@ -270,9 +272,9 @@ export function ChatSidebar({ onCreateWorkbench, onCreateCompany }: ChatSidebarP
         )}
 
         {/* User Profile */}
-        <div className="p-4 border-t border-border">
+        <div className={cn("border-t border-border", isCollapsed ? "p-2" : "p-4")}>
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+            <div className="sidebar-icon-container w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
               <User className="h-4 w-4 text-primary-foreground" />
             </div>
             {!isCollapsed && (

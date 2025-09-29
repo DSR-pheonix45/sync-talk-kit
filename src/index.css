@@ -222,12 +222,45 @@
     }
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  /* Sidebar alignment fixes */
+  .sidebar-alignment-fix {
+    /* Ensure sidebar transitions smoothly */
+    transition: width 0.2s ease-linear, left 0.2s ease-linear, right 0.2s ease-linear;
+  }
+
+  /* Fix for collapsed sidebar content */
+  [data-collapsible="icon"] .sidebar-content {
+    overflow: hidden;
+  }
+
+  /* Ensure sidebar trigger is properly positioned */
+  .sidebar-trigger {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* Fix for sidebar rail alignment */
+  .sidebar-rail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: transparent;
+    cursor: col-resize;
+  }
+
+  /* Collapsed sidebar improvements */
+  [data-collapsible="icon"] .sidebar-icon-container {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improve collapsed sidebar visual balance */
+  [data-state="collapsed"] {
+    width: 3rem !important;
+    min-width: 3rem;
   }
 }
