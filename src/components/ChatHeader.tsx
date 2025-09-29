@@ -8,7 +8,11 @@ import {
   ChevronDown
 } from 'lucide-react';
 
-export function ChatHeader() {
+interface ChatHeaderProps {
+  onGenerateReport?: () => void;
+}
+
+export function ChatHeader({ onGenerateReport }: ChatHeaderProps = {}) {
   return (
     <header className="flex items-center justify-between p-4 border-b border-border bg-surface">
       <div className="flex items-center gap-4">
@@ -35,6 +39,7 @@ export function ChatHeader() {
         <Button 
           variant="default" 
           className="gap-2 bg-primary hover:bg-primary-hover text-primary-foreground"
+          onClick={onGenerateReport}
         >
           <Download className="h-4 w-4" />
           Generate Report

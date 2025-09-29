@@ -6,6 +6,7 @@ import { ChatInput } from './ChatInput';
 import { WorkbenchModal } from './WorkbenchModal';
 import { CompanyModal } from './CompanyModal';
 import { ReportModal } from './ReportModal';
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export function ChatLayout() {
   const [showWorkbenchModal, setShowWorkbenchModal] = useState(false);
@@ -26,19 +27,18 @@ export function ChatLayout() {
   const userCredits = 50; // Mock credit balance
 
   return (
-    <>
-      <div className="flex h-screen bg-background">
+    <SidebarProvider>
+      <div className="flex h-screen w-full bg-background">
         {/* Sidebar */}
         <ChatSidebar 
           onCreateWorkbench={() => setShowWorkbenchModal(true)}
           onCreateCompany={() => setShowCompanyModal(true)}
-          onGenerateReport={() => setShowReportModal(true)}
         />
         
         {/* Main Content */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col min-w-0">
           {/* Header */}
-          <ChatHeader />
+          <ChatHeader onGenerateReport={() => setShowReportModal(true)} />
           
           {/* Chat Area */}
           <div className="flex-1 chat-message-area overflow-hidden">
@@ -46,7 +46,9 @@ export function ChatLayout() {
           </div>
           
           {/* Input */}
-          <ChatInput />
+          <div className="p-2 border-t border-border">
+            <ChatInput />
+          </div>
         </div>
       </div>
 
@@ -69,6 +71,6 @@ export function ChatLayout() {
         workbenches={workbenches}
         userCredits={userCredits}
       />
-    </>
+    </SidebarProvider>
   );
 }

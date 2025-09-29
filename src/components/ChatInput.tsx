@@ -28,92 +28,57 @@ export function ChatInput() {
   };
 
   return (
-    <div className="border-t border-border bg-surface p-4">
+    <div className="bg-surface">
       <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
         <div className="relative">
           {/* Input Container */}
-          <div className="relative bg-surface-elevated border border-input-border rounded-xl p-3 focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20 transition-all duration-200">
-            {/* Action Buttons Row */}
-            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
-              <Button 
-                type="button"
-                variant="ghost" 
-                size="sm" 
-                className="gap-2 text-muted-foreground hover:text-foreground"
-              >
-                <Plus className="h-4 w-4" />
-                Add
-              </Button>
-              
-              <Button 
-                type="button"
-                variant="ghost" 
-                size="sm" 
-                className="gap-2 text-muted-foreground hover:text-foreground"
-              >
-                <Paperclip className="h-4 w-4" />
-                Attach
-              </Button>
-
-              <div className="flex-1" />
-            </div>
-
+          <div className="relative bg-surface-elevated border border-input-border rounded-lg p-2 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/20 transition-all duration-200">
             {/* Text Input */}
-            <div className="flex items-end gap-3">
+            <div className="flex items-center gap-2">
               <div className="flex-1">
                 <Textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Message Dabby Consultant... (Ctrl + K)"
-                  className="min-h-[80px] resize-none border-0 bg-transparent p-0 focus-visible:ring-0 text-foreground placeholder:text-muted-foreground"
-                  rows={3}
+                  className="min-h-[40px] resize-none border-0 bg-transparent p-2 focus-visible:ring-0 text-foreground placeholder:text-muted-foreground text-sm"
+                  rows={1}
                 />
               </div>
               
-              {/* Send Button */}
-              <Button 
-                type="submit"
-                disabled={!message.trim()}
-                className={cn(
-                  "h-10 w-10 p-0 rounded-lg transition-all duration-200",
-                  message.trim() 
-                    ? "bg-primary hover:bg-primary-hover text-primary-foreground glow-primary" 
-                    : "bg-muted text-muted-foreground"
-                )}
-              >
-                <Send className="h-4 w-4" />
-              </Button>
-            </div>
-
-            {/* AI Indicator */}
-            {message.trim() && (
-              <div className="flex items-center gap-2 mt-3 pt-3 border-t border-border animate-slide-up">
-                <Sparkles className="h-3 w-3 text-primary" />
-                <span className="text-xs text-muted-foreground">
-                  AI will analyze your query and provide specialized business insights
-                </span>
+              {/* Action Buttons */}
+              <div className="flex items-center gap-1">
+                <Button 
+                  type="button"
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground"
+                >
+                  <Paperclip className="h-4 w-4" />
+                </Button>
+                
+                {/* Send Button */}
+                <Button 
+                  type="submit"
+                  disabled={!message.trim()}
+                  size="sm"
+                  className={cn(
+                    "h-8 w-8 p-0 rounded-md transition-all duration-200",
+                    message.trim() 
+                      ? "bg-primary hover:bg-primary/90 text-primary-foreground" 
+                      : "bg-muted text-muted-foreground"
+                  )}
+                >
+                  <Send className="h-3 w-3" />
+                </Button>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Keyboard Shortcut Hint */}
-          <div className="flex justify-between items-center mt-2 px-1">
-            <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <span>
-                <kbd className="inline-flex items-center gap-1 rounded border bg-muted px-1.5 py-0.5 font-mono">
-                  Ctrl
-                </kbd>
-                {' + '}
-                <kbd className="inline-flex items-center gap-1 rounded border bg-muted px-1.5 py-0.5 font-mono">
-                  Enter
-                </kbd>
-                {' to send'}
-              </span>
-            </div>
-            
+          <div className="flex justify-between items-center mt-1 px-2">
             <div className="text-xs text-muted-foreground">
-              {message.length}/2000 characters
+              Press Ctrl + Enter to send • Shift + Enter for new line
             </div>
           </div>
         </div>
