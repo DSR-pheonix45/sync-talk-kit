@@ -1,7 +1,7 @@
-import { ChatLayout } from '@/components/ChatLayout';
+import { Navigate } from 'react-router-dom';
 
 const Index = () => {
-  return <ChatLayout />;
+  return <Navigate to="/dashboard" replace />;
 };
 
 export default Index;
